@@ -1,0 +1,97 @@
+[    0.0s] run 1 id=20261111T170906Z jobs=10000 workers=8 kill_every=2.0s kills=on dup=0.3 cancels=500+500 lease=5.0s
+[   60.1s] WARNING: fewer than 8 workers visible
+[   60.3s] progress {} kills=0
+[   75.5s] progress {'queued': 6444, 'running': 8, 'succeeded': 139} kills=0
+[   87.0s] submission done: 15937 POSTs for 10000 keys
+[   90.7s] progress {'cancelled': 168, 'queued': 9563, 'running': 8, 'succeeded': 261} kills=0
+[  105.7s] progress {'cancelled': 372, 'queued': 9294, 'running': 8, 'succeeded': 326} kills=0
+[  120.8s] progress {'cancelled': 599, 'queued': 9009, 'running': 7, 'succeeded': 385} kills=0
+[  135.8s] progress {'cancelled': 719, 'queued': 8773, 'running': 8, 'succeeded': 500} kills=0
+[  150.9s] progress {'cancelled': 728, 'queued': 8624, 'running': 8, 'succeeded': 640} kills=0
+[  165.9s] progress {'cancelled': 728, 'queued': 8487, 'running': 8, 'succeeded': 777} kills=0
+[  181.0s] progress {'cancelled': 728, 'queued': 8350, 'running': 8, 'succeeded': 914} kills=0
+[  196.1s] progress {'cancelled': 728, 'queued': 8218, 'running': 8, 'succeeded': 1046} kills=0
+[  211.1s] progress {'cancelled': 728, 'queued': 8082, 'running': 8, 'succeeded': 1182} kills=0
+[  226.2s] progress {'cancelled': 728, 'queued': 7946, 'running': 8, 'succeeded': 1318} kills=0
+[  241.3s] progress {'cancelled': 728, 'queued': 7809, 'running': 8, 'succeeded': 1455} kills=0
+[  256.3s] progress {'cancelled': 728, 'queued': 7665, 'running': 8, 'succeeded': 1599} kills=0
+[  271.4s] progress {'cancelled': 728, 'queued': 7529, 'running': 8, 'succeeded': 1735} kills=0
+[  286.4s] progress {'cancelled': 728, 'queued': 7395, 'running': 8, 'succeeded': 1869} kills=0
+[  301.5s] progress {'cancelled': 728, 'queued': 7260, 'running': 8, 'succeeded': 2004} kills=0
+[  316.5s] progress {'cancelled': 728, 'queued': 7131, 'running': 8, 'succeeded': 2133} kills=0
+[  331.6s] progress {'cancelled': 728, 'queued': 6995, 'running': 8, 'succeeded': 2269} kills=0
+[  346.6s] progress {'cancelled': 728, 'queued': 6848, 'running': 8, 'succeeded': 2416} kills=0
+[  361.7s] progress {'cancelled': 728, 'queued': 6705, 'running': 8, 'succeeded': 2559} kills=0
+[  376.7s] progress {'cancelled': 728, 'queued': 6552, 'running': 8, 'succeeded': 2712} kills=0
+[  391.8s] progress {'cancelled': 728, 'queued': 6408, 'running': 7, 'succeeded': 2857} kills=0
+[  406.8s] progress {'cancelled': 728, 'queued': 6267, 'running': 8, 'succeeded': 2997} kills=0
+[  421.9s] progress {'cancelled': 728, 'queued': 6130, 'running': 8, 'succeeded': 3134} kills=0
+[  436.9s] progress {'cancelled': 728, 'queued': 5988, 'running': 8, 'succeeded': 3276} kills=0
+[  452.0s] progress {'cancelled': 728, 'queued': 5854, 'running': 8, 'succeeded': 3410} kills=0
+[  467.0s] progress {'cancelled': 728, 'queued': 5717, 'running': 8, 'succeeded': 3547} kills=0
+[  482.1s] progress {'cancelled': 728, 'queued': 5570, 'running': 8, 'succeeded': 3694} kills=0
+[  497.1s] progress {'cancelled': 728, 'queued': 5428, 'running': 8, 'succeeded': 3836} kills=0
+[  512.1s] progress {'cancelled': 728, 'queued': 5292, 'running': 8, 'succeeded': 3972} kills=0
+[  527.2s] progress {'cancelled': 728, 'queued': 5154, 'running': 8, 'succeeded': 4110} kills=0
+[  542.2s] progress {'cancelled': 728, 'queued': 5018, 'running': 8, 'succeeded': 4246} kills=0
+[  557.3s] progress {'cancelled': 728, 'queued': 4876, 'running': 8, 'succeeded': 4388} kills=0
+[  572.3s] progress {'cancelled': 728, 'queued': 4741, 'running': 8, 'succeeded': 4523} kills=0
+[  587.4s] progress {'cancelled': 728, 'queued': 4599, 'running': 8, 'succeeded': 4665} kills=0
+[  602.4s] progress {'cancelled': 728, 'queued': 4463, 'running': 8, 'succeeded': 4801} kills=0
+[  617.5s] progress {'cancelled': 728, 'queued': 4323, 'running': 8, 'succeeded': 4941} kills=0
+[  632.5s] progress {'cancelled': 728, 'queued': 4194, 'running': 8, 'succeeded': 5070} kills=0
+[  647.5s] progress {'cancelled': 728, 'queued': 4066, 'running': 8, 'succeeded': 5198} kills=0
+[  662.6s] progress {'cancelled': 728, 'queued': 3921, 'running': 8, 'succeeded': 5343} kills=0
+[  677.6s] progress {'cancelled': 728, 'queued': 3778, 'running': 8, 'succeeded': 5486} kills=0
+[  692.7s] progress {'cancelled': 728, 'queued': 3637, 'running': 8, 'succeeded': 5627} kills=0
+[  707.7s] progress {'cancelled': 728, 'queued': 3495, 'running': 8, 'succeeded': 5769} kills=0
+[  722.8s] progress {'cancelled': 728, 'queued': 3354, 'running': 8, 'succeeded': 5910} kills=0
+[  737.8s] progress {'cancelled': 728, 'queued': 3214, 'running': 8, 'succeeded': 6050} kills=0
+[  752.9s] progress {'cancelled': 728, 'queued': 3075, 'running': 8, 'succeeded': 6189} kills=0
+[  767.9s] progress {'cancelled': 728, 'queued': 2934, 'running': 8, 'succeeded': 6330} kills=0
+[  783.0s] progress {'cancelled': 728, 'queued': 2791, 'running': 8, 'succeeded': 6473} kills=0
+[  798.0s] progress {'cancelled': 728, 'queued': 2648, 'running': 8, 'succeeded': 6616} kills=0
+[  813.0s] progress {'cancelled': 728, 'queued': 2518, 'running': 8, 'succeeded': 6746} kills=0
+[  828.1s] progress {'cancelled': 728, 'queued': 2372, 'running': 8, 'succeeded': 6892} kills=0
+[  843.1s] progress {'cancelled': 728, 'queued': 2244, 'running': 8, 'succeeded': 7020} kills=0
+[  858.2s] progress {'cancelled': 728, 'queued': 2098, 'running': 8, 'succeeded': 7166} kills=0
+[  873.2s] progress {'cancelled': 728, 'queued': 1972, 'running': 8, 'succeeded': 7292} kills=0
+[  888.3s] progress {'cancelled': 728, 'queued': 1831, 'running': 7, 'succeeded': 7434} kills=0
+[  903.3s] progress {'cancelled': 728, 'queued': 1692, 'running': 8, 'succeeded': 7572} kills=0
+[  918.4s] progress {'cancelled': 728, 'queued': 1563, 'running': 8, 'succeeded': 7701} kills=0
+[  933.4s] progress {'cancelled': 728, 'queued': 1413, 'running': 8, 'succeeded': 7851} kills=0
+[  948.4s] progress {'cancelled': 728, 'queued': 1276, 'running': 8, 'succeeded': 7988} kills=0
+[  963.5s] progress {'cancelled': 728, 'queued': 1137, 'running': 8, 'succeeded': 8127} kills=0
+[  978.5s] progress {'cancelled': 728, 'queued': 998, 'running': 8, 'succeeded': 8266} kills=0
+[  993.6s] progress {'cancelled': 728, 'queued': 858, 'running': 8, 'succeeded': 8406} kills=0
+[ 1008.6s] progress {'cancelled': 728, 'queued': 725, 'running': 7, 'succeeded': 8540} kills=0
+[ 1023.7s] progress {'cancelled': 728, 'queued': 592, 'running': 8, 'succeeded': 8672} kills=0
+[ 1038.7s] progress {'cancelled': 728, 'queued': 457, 'running': 8, 'succeeded': 8807} kills=0
+[ 1053.8s] progress {'cancelled': 728, 'queued': 319, 'running': 8, 'succeeded': 8945} kills=0
+[ 1068.8s] progress {'cancelled': 728, 'queued': 181, 'running': 8, 'succeeded': 9083} kills=0
+[ 1083.9s] progress {'cancelled': 728, 'queued': 46, 'running': 8, 'succeeded': 9218} kills=0
+[ 1090.9s] all jobs finished; killer stops
+[ 1096.9s] final {'cancelled': 728, 'succeeded': 9272}
+[ 1097.0s] CHECKS
+[ 1097.0s]   PASS  no job lost: accepted=10000 in_db=10000 missing=0 unknown_extra=0 never_accepted=0
+[ 1097.0s]   PASS  duplicate POSTs return the same job: keys_with_2+_ids=0 id_mismatch_vs_db=0 responses: 201=9999 200=5938
+[ 1097.0s]   PASS  no job has more than one side effect: effects=9272 (PK allows max 1) stale_attempt=0 unexpected_worker_crashes=0
+[ 1097.0s]   PASS  none stuck in queued/running: 0
+[ 1097.0s]   PASS  final states consistent: succeeded_without_effect=0 effect_on_non_succeeded=0 cancel_answer_contradicts_final_state=0
+[ 1097.0s]   PASS  every kill seen by supervisor: kills_sent=0 sigkill_exits_seen=0
+[ 1097.0s] STATS
+[ 1097.0s]   jobs: 10000
+[ 1097.0s]   final_states: {'succeeded': 9272, 'cancelled': 728}
+[ 1097.0s]   duration_s: 1097.0
+[ 1097.0s]   kills: 0
+[ 1097.0s]   kill_misses: 512
+[ 1097.0s]   post_requests: 15937
+[ 1097.0s]   request_errors: {'client_timeout_then_retry': 4}
+[ 1097.0s]   cancel_requests: {'running:409:succeeded': 244, 'random:200:cancelled': 486, 'random:409:succeeded': 14, 'running:200:cancelled': 256}
+[ 1097.0s]   cancelled_while_running: 246
+[ 1097.0s]   jobs_executed_more_than_once: 194
+[ 1097.0s]   max_executions_of_one_job: 3
+[ 1097.0s]   executions_total: 9716
+[ 1097.0s]   events: {'claimed': 9716, 'completed': 9272, 'completion_rejected': 128, 'heartbeat_lost': 129, 'lost_job': 115, 'requeued': 198, 'failed': 0, 'reaped': 0, 'fail_rejected': 3, 'complete_outcome_unknown': 0}
+[ 1097.0s]   heartbeat_ms: {'n': 8037, 'p50': 1.8, 'p99': 5.9, 'max': 19.8}
+[ 1097.0s] RESULT: PASS

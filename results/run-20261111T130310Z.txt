@@ -1,0 +1,47 @@
+[    0.0s] run 1 id=20261111T130310Z jobs=10000 workers=8 kill_every=2.0s kills=on dup=0.3 cancels=500+500 lease=5.0s
+[   15.7s] progress {} kills=8
+[   31.3s] progress {} kills=16
+[   47.1s] progress {} kills=23
+[   62.5s] progress {} kills=32
+[   78.9s] progress {} kills=40
+[   94.8s] progress {} kills=47
+[  110.0s] progress {} kills=55
+[  125.0s] progress {} kills=62
+[  140.7s] progress {} kills=70
+[  156.6s] progress {} kills=77
+[  172.2s] progress {} kills=85
+[  187.3s] progress {} kills=92
+[  203.3s] progress {} kills=100
+[  219.1s] progress {} kills=107
+[  235.0s] progress {} kills=115
+[  251.0s] progress {} kills=122
+[  266.9s] progress {} kills=131
+[  282.7s] progress {} kills=138
+[  297.8s] progress {} kills=145
+[  313.0s] progress {} kills=153
+[  326.5s] submission done: 15975 POSTs for 10000 keys
+[  326.8s] all jobs finished; killer stops
+[  332.8s] final {}
+[  332.8s] CHECKS
+[  332.8s]   FAIL  no job lost: accepted=0 in_db=0 missing=0 unknown_extra=0 never_accepted=10000
+[  332.8s]   PASS  duplicate POSTs return the same job: keys_with_2+_ids=0 id_mismatch_vs_db=0 responses: 201=0 200=0
+[  332.8s]   PASS  no job has more than one side effect: effects=0 (PK allows max 1) stale_attempt=0 unexpected_worker_crashes=0
+[  332.8s]   PASS  none stuck in queued/running: 0
+[  332.8s]   PASS  final states consistent: succeeded_without_effect=0 effect_on_non_succeeded=0 cancel_answer_contradicts_final_state=0
+[  332.8s]   FAIL  every kill seen by supervisor: kills_sent=160 sigkill_exits_seen=0
+[  332.8s] STATS
+[  332.8s]   jobs: 0
+[  332.8s]   final_states: {}
+[  332.8s]   duration_s: 332.8
+[  332.8s]   kills: 160
+[  332.8s]   kill_misses: 0
+[  332.8s]   post_requests: 0
+[  332.8s]   request_errors: {'client_timeout_then_retry': 510, 'http_500': 159192, 'transport:ReadError': 48, 'gave_up': 15975}
+[  332.8s]   cancel_requests: {}
+[  332.8s]   cancelled_while_running: 0
+[  332.8s]   jobs_executed_more_than_once: 0
+[  332.8s]   max_executions_of_one_job: 0
+[  332.8s]   executions_total: 0
+[  332.8s]   events: {'claimed': 0, 'completed': 0, 'completion_rejected': 0, 'heartbeat_lost': 0, 'lost_job': 0, 'requeued': 0, 'failed': 0, 'reaped': 0, 'fail_rejected': 0, 'complete_outcome_unknown': 0}
+[  332.8s]   heartbeat_ms: {}
+[  332.8s] RESULT: FAIL

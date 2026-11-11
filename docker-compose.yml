@@ -1,0 +1,74 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: queue
+      POSTGRES_USER: queue
+      POSTGRES_PASSWORD: queue
+    ports:
+      - "5432:5432"
+    volumes:
+      # Runs only when the database is created for the first time.
+      # To start fresh:  docker compose down -v
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U queue -d queue"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  workers:
+    build: .
+    command: python -m jobqueue.supervisor
+    environment:
+      DATABASE_URL: postgresql://queue:queue@postgres:5432/queue
+      WORKERS: ${WORKERS:-8}
+      LEASE_SECONDS: ${LEASE_SECONDS:-5}
+      HEARTBEAT_SECONDS: ${HEARTBEAT_SECONDS:-1}
+      WORK_MIN_MS: ${WORK_MIN_MS:-200}
+      WORK_MAX_MS: ${WORK_MAX_MS:-1500}
+      PID_FILE: /shared/workers.json      # read by the harness to pick a worker to kill
+      EVENT_LOG: /shared/events.jsonl     # read by the harness as evidence
+    volumes:
+      - shared:/shared
+    depends_on:
+      postgres:
+        condition: service_healthy
+    stop_grace_period: 15s
+
+  api:
+    build: .
+    command: uvicorn jobqueue.api:app --host 0.0.0.0 --port 8000
+    environment:
+      DATABASE_URL: postgresql://queue:queue@postgres:5432/queue
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # Not started by "docker compose up". Run it with:  docker compose run --rm harness
+  harness:
+    build: .
+    profiles: ["chaos"]
+    command: python -m harness.chaos
+    pid: "service:workers"    # shares the workers' process list, so it can kill -9 them
+    environment:
+      API_URL: http://api:8000
+      DATABASE_URL: postgresql://queue:queue@postgres:5432/queue
+      PID_FILE: /shared/workers.json
+      EVENT_LOG: /shared/events.jsonl
+      RESULTS_DIR: /app/results
+      WORKERS: ${WORKERS:-8}
+      LEASE_SECONDS: ${LEASE_SECONDS:-5}
+      RUNS: ${RUNS:-1}
+      JOBS: ${JOBS:-10000}
+    volumes:
+      - shared:/shared
+      - ./results:/app/results
+    depends_on:
+      - api
+      - workers
+
+volumes:
+  shared:

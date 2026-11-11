@@ -1,0 +1,31 @@
+[    0.0s] run 2 id=20261111T134019Z jobs=1000 workers=8 kill_every=2.0s kills=on dup=0.3 cancels=500+500 lease=5.0s
+[   10.0s] submission done: 1571 POSTs for 1000 keys
+[   15.2s] progress {'cancelled': 162, 'queued': 766, 'running': 7, 'succeeded': 65} kills=7
+[   30.2s] progress {'cancelled': 382, 'queued': 490, 'running': 4, 'succeeded': 124} kills=14
+[   45.2s] progress {'cancelled': 550, 'queued': 269, 'running': 7, 'succeeded': 174} kills=23
+[   60.2s] progress {'cancelled': 685, 'queued': 82, 'running': 5, 'succeeded': 228} kills=31
+[   73.3s] all jobs finished; killer stops
+[   79.3s] final {'cancelled': 713, 'succeeded': 287}
+[   79.3s] CHECKS
+[   79.3s]   PASS  no job lost: accepted=1000 in_db=1000 missing=0 unknown_extra=0 never_accepted=0
+[   79.3s]   PASS  duplicate POSTs return the same job: keys_with_2+_ids=0 id_mismatch_vs_db=0 responses: 201=999 200=572
+[   79.3s]   PASS  no job has more than one side effect: effects=287 (PK allows max 1) stale_attempt=0 unexpected_worker_crashes=0
+[   79.3s]   PASS  none stuck in queued/running: 0
+[   79.3s]   PASS  final states consistent: succeeded_without_effect=0 effect_on_non_succeeded=0 cancel_answer_contradicts_final_state=0
+[   79.3s]   PASS  every kill seen by supervisor: kills_sent=37 sigkill_exits_seen=37
+[   79.3s] STATS
+[   79.3s]   jobs: 1000
+[   79.3s]   final_states: {'cancelled': 713, 'succeeded': 287}
+[   79.3s]   duration_s: 79.3
+[   79.3s]   kills: 37
+[   79.3s]   kill_misses: 0
+[   79.3s]   post_requests: 1571
+[   79.3s]   request_errors: {'client_timeout_then_retry': 3}
+[   79.3s]   cancel_requests: {'running:409:succeeded': 71, 'random:200:cancelled': 414, 'running:200:cancelled': 429, 'random:409:succeeded': 86}
+[   79.3s]   cancelled_while_running: 402
+[   79.3s]   jobs_executed_more_than_once: 6
+[   79.3s]   max_executions_of_one_job: 2
+[   79.3s]   executions_total: 695
+[   79.3s]   events: {'claimed': 695, 'completed': 287, 'completion_rejected': 222, 'heartbeat_lost': 180, 'lost_job': 144, 'requeued': 3, 'failed': 0, 'reaped': 0, 'fail_rejected': 4, 'complete_outcome_unknown': 0}
+[   79.3s]   heartbeat_ms: {'n': 321, 'p50': 1.9, 'p99': 12.6, 'max': 18.0}
+[   79.3s] RESULT: PASS

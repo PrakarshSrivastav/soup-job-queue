@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# too big for GitHub / not ours to publish
+*.mp4
+*.mov
+*.pdf

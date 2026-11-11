@@ -1,0 +1,50 @@
+# Load test run 20261111T212010Z: HUNG at the 1000 req/s step (stopped by hand)
+#
+# The original load.py only wrote its results file at the very end, so this run left no file.
+# This is the terminal output, copied by hand. The 1000 req/s step ran for ~60 minutes without
+# finishing; Ctrl+C did not reach the process inside the container, so it was stopped with
+# `docker kill`. Fix in load.py: save after every step, and cut a step off at SECONDS + 60 s
+# (reported as "unfinished_when_cut_off") instead of waiting forever.
+
+# load test 20261111T212010Z code=e23a5755e095 rates=[100, 300, 1000] seconds_per_rate=30.0
+# mix: [('create', 0.6), ('create_dup', 0.1), ('get', 0.2), ('list', 0.05), ('cancel', 0.05)]
+# api health: {'ok': True, 'code': 'e23a5755e095'}
+
+## 100 req/s for 30 s
+  rate: 100
+  requests: 3000
+  seconds: 30.0
+  achieved_rps: 100.0
+  errors: 0
+  p50_ms: 4.2
+  p95_ms: 7.3
+  p99_ms: 10.8
+  max_ms: 49.8
+  by_kind_p99_ms: {'create': 12.1, 'cancel': 8.6, 'get': 6.2, 'create_dup': 7.6, 'list': 11.9}
+  client_send_delay_p99_ms: 1.7
+  status: {'create:201': 1811, 'cancel:200': 126, 'get:200': 615, 'create_dup:200': 284, 'list:200': 150, 'cancel:409': 14}
+  jobs_created_per_s: 60.4
+  jobs_finished_per_s: 12.9
+  queue_depth_before: 0
+  queue_depth_after: 1417
+
+## 300 req/s for 30 s
+  rate: 300
+  requests: 9000
+  seconds: 30.0
+  achieved_rps: 300.0
+  errors: 0
+  p50_ms: 3.0
+  p95_ms: 5.2
+  p99_ms: 8.5
+  max_ms: 25.9
+  by_kind_p99_ms: {'list': 11.4, 'create': 9.8, 'create_dup': 5.1, 'get': 4.1, 'cancel': 6.9}
+  client_send_delay_p99_ms: 1.5
+  status: {'list:200': 459, 'create:201': 5401, 'create_dup:200': 937, 'get:200': 1761, 'cancel:200': 442}
+  jobs_created_per_s: 180.0
+  jobs_finished_per_s: 22.4
+  queue_depth_before: 1370
+  queue_depth_after: 6099
+
+## 1000 req/s for 30 s
+(no output: hung for ~60 minutes, stopped with Ctrl+C (ignored) and then `docker kill`)

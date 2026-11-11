@@ -1,0 +1,101 @@
+[    0.0s] run 1 id=20261111T134339Z jobs=10000 workers=8 kill_every=2.0s kills=on dup=0.3 cancels=500+500 lease=5.0s
+[   15.5s] progress {'queued': 4353, 'running': 10, 'succeeded': 122} kills=7
+[   30.8s] progress {'queued': 8489, 'running': 10, 'succeeded': 250} kills=15
+[   42.8s] submission done: 16138 POSTs for 10000 keys
+[   46.0s] progress {'cancelled': 254, 'queued': 9371, 'running': 7, 'succeeded': 368} kills=22
+[   61.1s] progress {'cancelled': 459, 'queued': 9122, 'running': 4, 'succeeded': 415} kills=30
+[   76.1s] progress {'cancelled': 605, 'queued': 8867, 'running': 10, 'succeeded': 518} kills=37
+[   91.2s] progress {'cancelled': 641, 'queued': 8704, 'running': 11, 'succeeded': 644} kills=45
+[  106.3s] progress {'cancelled': 644, 'queued': 8569, 'running': 10, 'succeeded': 777} kills=53
+[  121.3s] progress {'cancelled': 644, 'queued': 8442, 'running': 10, 'succeeded': 904} kills=61
+[  136.4s] progress {'cancelled': 644, 'queued': 8310, 'running': 10, 'succeeded': 1036} kills=69
+[  151.5s] progress {'cancelled': 644, 'queued': 8176, 'running': 10, 'succeeded': 1170} kills=76
+[  166.5s] progress {'cancelled': 644, 'queued': 8051, 'running': 10, 'succeeded': 1295} kills=84
+[  181.6s] progress {'cancelled': 644, 'queued': 7919, 'running': 9, 'succeeded': 1428} kills=92
+[  196.7s] progress {'cancelled': 644, 'queued': 7793, 'running': 10, 'succeeded': 1553} kills=100
+[  211.7s] progress {'cancelled': 644, 'queued': 7659, 'running': 9, 'succeeded': 1688} kills=107
+[  226.8s] progress {'cancelled': 644, 'queued': 7536, 'running': 11, 'succeeded': 1809} kills=114
+[  241.9s] progress {'cancelled': 644, 'queued': 7401, 'running': 10, 'succeeded': 1945} kills=122
+[  256.9s] progress {'cancelled': 644, 'queued': 7268, 'running': 9, 'succeeded': 2079} kills=128
+[  272.0s] progress {'cancelled': 644, 'queued': 7138, 'running': 10, 'succeeded': 2208} kills=136
+[  287.0s] progress {'cancelled': 644, 'queued': 7008, 'running': 10, 'succeeded': 2338} kills=144
+[  302.2s] progress {'cancelled': 644, 'queued': 6899, 'running': 10, 'succeeded': 2447} kills=151
+[  317.2s] progress {'cancelled': 644, 'queued': 6769, 'running': 10, 'succeeded': 2577} kills=159
+[  332.3s] progress {'cancelled': 644, 'queued': 6636, 'running': 10, 'succeeded': 2710} kills=167
+[  347.4s] progress {'cancelled': 644, 'queued': 6509, 'running': 10, 'succeeded': 2837} kills=174
+[  362.4s] progress {'cancelled': 644, 'queued': 6382, 'running': 10, 'succeeded': 2964} kills=182
+[  377.5s] progress {'cancelled': 644, 'queued': 6264, 'running': 10, 'succeeded': 3082} kills=190
+[  392.5s] progress {'cancelled': 644, 'queued': 6135, 'running': 10, 'succeeded': 3211} kills=197
+[  407.6s] progress {'cancelled': 644, 'queued': 6002, 'running': 10, 'succeeded': 3344} kills=205
+[  422.6s] progress {'cancelled': 644, 'queued': 5873, 'running': 10, 'succeeded': 3473} kills=213
+[  437.7s] progress {'cancelled': 644, 'queued': 5750, 'running': 10, 'succeeded': 3596} kills=220
+[  452.7s] progress {'cancelled': 644, 'queued': 5620, 'running': 10, 'succeeded': 3726} kills=227
+[  467.8s] progress {'cancelled': 644, 'queued': 5487, 'running': 10, 'succeeded': 3859} kills=234
+[  482.8s] progress {'cancelled': 644, 'queued': 5365, 'running': 10, 'succeeded': 3981} kills=242
+[  497.9s] progress {'cancelled': 644, 'queued': 5229, 'running': 10, 'succeeded': 4117} kills=250
+[  512.9s] progress {'cancelled': 644, 'queued': 5107, 'running': 10, 'succeeded': 4239} kills=258
+[  528.0s] progress {'cancelled': 644, 'queued': 4978, 'running': 10, 'succeeded': 4368} kills=266
+[  543.1s] progress {'cancelled': 644, 'queued': 4847, 'running': 10, 'succeeded': 4499} kills=273
+[  558.1s] progress {'cancelled': 644, 'queued': 4729, 'running': 10, 'succeeded': 4617} kills=281
+[  573.2s] progress {'cancelled': 644, 'queued': 4592, 'running': 10, 'succeeded': 4754} kills=288
+[  588.2s] progress {'cancelled': 644, 'queued': 4464, 'running': 10, 'succeeded': 4882} kills=296
+[  603.3s] progress {'cancelled': 644, 'queued': 4328, 'running': 10, 'succeeded': 5018} kills=304
+[  618.3s] progress {'cancelled': 644, 'queued': 4206, 'running': 10, 'succeeded': 5140} kills=311
+[  633.4s] progress {'cancelled': 644, 'queued': 4087, 'running': 10, 'succeeded': 5259} kills=319
+[  648.4s] progress {'cancelled': 644, 'queued': 3964, 'running': 10, 'succeeded': 5382} kills=327
+[  663.5s] progress {'cancelled': 644, 'queued': 3831, 'running': 10, 'succeeded': 5515} kills=334
+[  678.5s] progress {'cancelled': 644, 'queued': 3703, 'running': 10, 'succeeded': 5643} kills=341
+[  693.6s] progress {'cancelled': 644, 'queued': 3583, 'running': 10, 'succeeded': 5763} kills=348
+[  708.6s] progress {'cancelled': 644, 'queued': 3460, 'running': 11, 'succeeded': 5885} kills=356
+[  723.7s] progress {'cancelled': 644, 'queued': 3325, 'running': 11, 'succeeded': 6020} kills=364
+[  738.7s] progress {'cancelled': 644, 'queued': 3196, 'running': 10, 'succeeded': 6150} kills=372
+[  753.8s] progress {'cancelled': 644, 'queued': 3061, 'running': 9, 'succeeded': 6286} kills=380
+[  768.8s] progress {'cancelled': 644, 'queued': 2928, 'running': 10, 'succeeded': 6418} kills=387
+[  783.9s] progress {'cancelled': 644, 'queued': 2797, 'running': 10, 'succeeded': 6549} kills=395
+[  799.0s] progress {'cancelled': 644, 'queued': 2678, 'running': 10, 'succeeded': 6668} kills=401
+[  814.0s] progress {'cancelled': 644, 'queued': 2550, 'running': 10, 'succeeded': 6796} kills=409
+[  829.1s] progress {'cancelled': 644, 'queued': 2415, 'running': 9, 'succeeded': 6932} kills=416
+[  844.1s] progress {'cancelled': 644, 'queued': 2284, 'running': 10, 'succeeded': 7062} kills=424
+[  859.2s] progress {'cancelled': 644, 'queued': 2152, 'running': 10, 'succeeded': 7194} kills=431
+[  874.3s] progress {'cancelled': 644, 'queued': 2019, 'running': 10, 'succeeded': 7327} kills=439
+[  889.3s] progress {'cancelled': 644, 'queued': 1893, 'running': 10, 'succeeded': 7453} kills=446
+[  904.4s] progress {'cancelled': 644, 'queued': 1759, 'running': 9, 'succeeded': 7588} kills=453
+[  919.5s] progress {'cancelled': 644, 'queued': 1632, 'running': 11, 'succeeded': 7713} kills=461
+[  934.5s] progress {'cancelled': 644, 'queued': 1506, 'running': 10, 'succeeded': 7840} kills=469
+[  949.6s] progress {'cancelled': 644, 'queued': 1379, 'running': 10, 'succeeded': 7967} kills=477
+[  964.6s] progress {'cancelled': 644, 'queued': 1245, 'running': 10, 'succeeded': 8101} kills=485
+[  979.7s] progress {'cancelled': 644, 'queued': 1123, 'running': 10, 'succeeded': 8223} kills=493
+[  994.7s] progress {'cancelled': 644, 'queued': 999, 'running': 10, 'succeeded': 8347} kills=500
+[ 1009.8s] progress {'cancelled': 644, 'queued': 878, 'running': 10, 'succeeded': 8468} kills=508
+[ 1024.9s] progress {'cancelled': 644, 'queued': 751, 'running': 10, 'succeeded': 8595} kills=515
+[ 1039.9s] progress {'cancelled': 644, 'queued': 629, 'running': 10, 'succeeded': 8717} kills=523
+[ 1055.0s] progress {'cancelled': 644, 'queued': 499, 'running': 11, 'succeeded': 8846} kills=530
+[ 1070.0s] progress {'cancelled': 644, 'queued': 370, 'running': 10, 'succeeded': 8976} kills=538
+[ 1085.1s] progress {'cancelled': 644, 'queued': 228, 'running': 10, 'succeeded': 9118} kills=546
+[ 1100.2s] progress {'cancelled': 644, 'queued': 89, 'running': 10, 'succeeded': 9257} kills=554
+[ 1115.2s] progress {'cancelled': 644, 'running': 1, 'succeeded': 9355} kills=561
+[ 1117.2s] all jobs finished; killer stops
+[ 1123.2s] final {'cancelled': 644, 'succeeded': 9356}
+[ 1123.3s] CHECKS
+[ 1123.3s]   PASS  no job lost: accepted=10000 in_db=10000 missing=0 unknown_extra=0 never_accepted=0
+[ 1123.3s]   PASS  duplicate POSTs return the same job: keys_with_2+_ids=0 id_mismatch_vs_db=0 responses: 201=9997 200=6141
+[ 1123.3s]   PASS  no job has more than one side effect: effects=9356 (PK allows max 1) stale_attempt=0 unexpected_worker_crashes=0
+[ 1123.3s]   PASS  none stuck in queued/running: 0
+[ 1123.3s]   PASS  final states consistent: succeeded_without_effect=0 effect_on_non_succeeded=0 cancel_answer_contradicts_final_state=0
+[ 1123.3s]   PASS  every kill seen by supervisor: kills_sent=562 sigkill_exits_seen=562
+[ 1123.3s] STATS
+[ 1123.3s]   jobs: 10000
+[ 1123.3s]   final_states: {'succeeded': 9356, 'cancelled': 644}
+[ 1123.3s]   duration_s: 1123.3
+[ 1123.3s]   kills: 562
+[ 1123.3s]   kill_misses: 0
+[ 1123.3s]   post_requests: 16138
+[ 1123.3s]   request_errors: {'client_timeout_then_retry': 6}
+[ 1123.3s]   cancel_requests: {'running:409:succeeded': 325, 'random:409:succeeded': 16, 'random:200:cancelled': 484, 'running:200:cancelled': 175}
+[ 1123.3s]   cancelled_while_running: 160
+[ 1123.3s]   jobs_executed_more_than_once: 662
+[ 1123.3s]   max_executions_of_one_job: 4
+[ 1123.3s]   executions_total: 10228
+[ 1123.3s]   events: {'claimed': 10228, 'completed': 9354, 'completion_rejected': 83, 'heartbeat_lost': 80, 'lost_job': 64, 'requeued': 169, 'failed': 0, 'reaped': 0, 'fail_rejected': 0, 'complete_outcome_unknown': 0}
+[ 1123.3s]   heartbeat_ms: {'n': 8044, 'p50': 2.5, 'p99': 16.4, 'max': 61.1}
+[ 1123.3s] RESULT: PASS

@@ -1,0 +1,78 @@
+{
+  "run": "20261111T134138Z",
+  "ok": true,
+  "checks": [
+    [
+      true,
+      "no job lost",
+      "accepted=1000 in_db=1000 missing=0 unknown_extra=0 never_accepted=0"
+    ],
+    [
+      true,
+      "duplicate POSTs return the same job",
+      "keys_with_2+_ids=0 id_mismatch_vs_db=0 responses: 201=1000 200=671"
+    ],
+    [
+      true,
+      "no job has more than one side effect",
+      "effects=300 (PK allows max 1) stale_attempt=0 unexpected_worker_crashes=0"
+    ],
+    [
+      true,
+      "none stuck in queued/running",
+      "0"
+    ],
+    [
+      true,
+      "final states consistent",
+      "succeeded_without_effect=0 effect_on_non_succeeded=0 cancel_answer_contradicts_final_state=0"
+    ],
+    [
+      true,
+      "every kill seen by supervisor",
+      "kills_sent=40 sigkill_exits_seen=40"
+    ]
+  ],
+  "stats": {
+    "jobs": 1000,
+    "final_states": {
+      "succeeded": 300,
+      "cancelled": 700
+    },
+    "duration_s": 83.3,
+    "kills": 40,
+    "kill_misses": 0,
+    "post_requests": 1671,
+    "request_errors": {
+      "client_timeout_then_retry": 2
+    },
+    "cancel_requests": {
+      "running:409:succeeded": 79,
+      "random:200:cancelled": 426,
+      "random:409:succeeded": 74,
+      "running:200:cancelled": 421
+    },
+    "cancelled_while_running": 403,
+    "jobs_executed_more_than_once": 9,
+    "max_executions_of_one_job": 2,
+    "executions_total": 712,
+    "events": {
+      "claimed": 712,
+      "completed": 300,
+      "completion_rejected": 217,
+      "heartbeat_lost": 187,
+      "lost_job": 148,
+      "requeued": 6,
+      "failed": 0,
+      "reaped": 0,
+      "fail_rejected": 4,
+      "complete_outcome_unknown": 0
+    },
+    "heartbeat_ms": {
+      "n": 337,
+      "p50": 1.8,
+      "p99": 12.7,
+      "max": 314.7
+    }
+  }
+}

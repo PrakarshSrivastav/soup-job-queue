@@ -1,0 +1,63 @@
+# silent-failure tests  20261111T173149Z  code=e23a5755e095
+
+## double claim   [OK]
+how:     16 threads claim 2000 jobs as fast as they can; count jobs handed to 2+ claimers
+real:    safe  ({'claims': 2000, 'jobs': 2000, 'claimed_twice': 0, 'errors': {}})
+broken:  bug shown  (SELECT-then-UPDATE in two steps: {'claims': 12591, 'jobs': 2000, 'claimed_twice': 1997, 'errors': {}})
+
+## isolation level   [OK]
+how:     same claim test at stricter levels. Real code at READ COMMITTED: see 'double claim'. Postgres default is READ COMMITTED; our safety comes from single conditional statements + row locks, not from the isolation level
+real:    safe  (real claim at REPEATABLE READ: {'claims': 2000, 'jobs': 2000, 'claimed_twice': 0, 'errors': {'serialization_failure': 1536}})
+note:    naive SELECT-then-UPDATE at SERIALIZABLE: {'claims': 2000, 'jobs': 2000, 'claimed_twice': 0, 'errors': {'serialization_failure': 15775}}
+         -> at READ COMMITTED the naive code double-claims SILENTLY; at SERIALIZABLE the same
+            bug turns into LOUD serialization errors. Our real claim is correct at READ COMMITTED,
+            but at REPEATABLE READ it throws serialization errors under contention, which the
+            worker does not retry (it would crash and be restarted). So: we depend on READ
+            COMMITTED for availability, not for correctness.
+
+## zombie worker (deterministic)   [OK]
+how:     200 times: A claims, A's lease expires, B reclaims, then A (the zombie) tries to complete before B does
+real:    safe  ({'zombie_write_accepted': 0, 'fresh_write_accepted': 200, 'stale_effects': 0, 'effects': 200})
+broken:  bug shown  (complete without 'attempt =': {'zombie_write_accepted': 200, 'fresh_write_accepted': 0, 'stale_effects': 200, 'effects': 200} -> the zombie's stale result wins and the fresh worker's result is thrown away)
+
+## zombie worker (real processes, SIGSTOP)   [OK]
+how:     real worker A frozen with SIGSTOP mid-job for 3 s (lease 2 s); worker B takes over and finishes; A resumed with SIGCONT
+real:    safe  (final=succeeded effects=[(2, 'cebd41275e2e-130-b93b9b')] executions=2 A_after_resume=['heartbeat_lost', 'lost_job'])
+
+## cancel/complete race   [OK]
+how:     500 times: a running job; cancel and complete released at the same instant (thread barrier); check exactly one wins and the final state matches the answers
+real:    safe  ({'complete_won': 231, 'cancel_won': 269})
+broken:  bug shown  (complete without "state = 'running'": {'complete_won': 245, 'INCONSISTENT': 255, 'cancel_said_ok_but_job_succeeded': 255})
+
+## duplicate on retry (concurrent)   [OK]
+how:     100 rounds x 20 threads sending the same key at the same instant (the API's create logic)
+real:    safe  ({'keys_with_2+_rows': 0, 'keys_where_callers_got_different_ids': 0, 'rows': 100})
+broken:  bug shown  (SELECT-then-INSERT, no UNIQUE constraint: {'keys_with_2+_rows': 100, 'keys_where_callers_got_different_ids': 100, 'rows': 1999})
+
+## duplicate on retry (lost response, real HTTP)   [OK]
+how:     50 times: send POST over a raw socket and hang up before the answer; retry the same key. 200 on retry = the first request had committed and was recognised
+real:    safe  ({'retry_answered_200': 50, 'key_matches': 50})
+
+## clock skew   [OK]
+how:     worker clock set -10 s / 0 / +1 h. Real code: lease end = database now() + 5 s, so the worker clock never enters. Control: lease end computed from the worker's clock
+real:    safe  (by worker skew: {-10: {'lease_left_s': 5.0, 'stolen_immediately': False}, 0: {'lease_left_s': 5.0, 'stolen_immediately': False}, 3600: {'lease_left_s': 5.0, 'stolen_immediately': False}})
+broken:  bug shown  (by worker skew: {-10: {'lease_left_s': -5.0, 'stolen_immediately': True}, 0: {'lease_left_s': 5.0, 'stolen_immediately': False}, 3600: {'lease_left_s': 3605.0, 'stolen_immediately': False}} -> -10 s: job stolen while A still works (wasted work; the attempt fence still blocks a double effect); +1 h: a dead worker's job is stuck ~1 h)
+note:    the worker uses its own clock only for log timestamps and time.monotonic() for
+         intervals (heartbeat, backoff), which is immune to wall-clock jumps. Remaining risk:
+         the DATABASE clock jumping (e.g. failover to a replica with a different clock).
+
+## attempts exhausted (never happened in the chaos runs)   [OK]
+how:     max_attempts=2. Job 1: worker dies on both attempts. Job 2: work fails on both attempts
+real:    safe  ({'claim_after_last_attempt': None, 'j1_before_reap': 'running', 'reaped': [1], 'j1_after_reap': 'failed', 'j2_state_after_each_fail': ['queued', 'failed']})
+broken:  bug shown  (without the reaper, job 1 stays 'running' forever: no claim will take it)
+
+# summary
+  OK     double claim
+  OK     isolation level
+  OK     zombie worker (deterministic)
+  OK     zombie worker (real processes, SIGSTOP)
+  OK     cancel/complete race
+  OK     duplicate on retry (concurrent)
+  OK     duplicate on retry (lost response, real HTTP)
+  OK     clock skew
+  OK     attempts exhausted (never happened in the chaos runs)
