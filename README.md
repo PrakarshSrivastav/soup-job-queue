@@ -4,7 +4,7 @@ A training-job queue service (API + Postgres + 8 workers), a chaos harness that 
 workers with `kill -9` while duplicate requests and cancels run in parallel, silent-failure
 tests with negative controls, and a load test. Built for the Soup backend take-home.
 
-**Video walkthrough:** _add link here_
+**Video walkthrough:** https://drive.google.com/drive/folders/1hkPklUv0yu4ndtkdMqXYAFzuq-GI5-G2?usp=sharing
 
 ## Run it
 
